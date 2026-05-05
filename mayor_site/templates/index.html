@@ -145,83 +145,40 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Голосуйте за Дмитрия Анатольевича</title>
-    <style>
-    html { scroll-behavior: smooth; }
-    body {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
+   <!-- 1. Этот тег ОБЯЗАТЕЛЕН, чтобы телефон понимал масштаб -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    /* 2. Это правило сделает ВСЕ фото на сайте гибкими */
+    img {
+        max-width: 100%; /* Фото не будет шире экрана телефона */
+        height: auto;    /* Пропорции сохранятся, фото не сплющится */
+        display: block;  /* Убирает лишние зазоры */
+        margin: 0 auto;  /* Центрирует фото */
+    }
+
+    /* 3. Исправляем твою галерею, чтобы она подстраивалась под экран */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap; /* На телефоне фото встанут друг под друга */
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    /* Ограничиваем размер карточек, чтобы они не были гигантскими */
+    .photo-card {
+        width: 100%;
+        max-width: 400px; /* На ПК будет аккуратно, на телефоне — во всю ширину */
+    }
+
+    /* Твои стили шапки (теперь внутри тега style) */
+    header { 
+        background-color: #0056b3; 
+        color: white; 
+        padding: 2rem 1rem; 
         text-align: center;
     }
-    header {
-        background-color: #0056b3;
-        color: white;
-        padding: 3rem 1rem;
-    }
-
-    /* Подзаголовок */
-    .subtitle {
-        font-size: 1.5rem;
-        color: #e0e0e0;
-        text-transform: uppercase;
-        margin: 10px 0 25px 0;
-    }
-
-    /* Кнопки в ряд */
-    .nav-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    .btn-nav {
-        background-color: #ffcc00;
-        color: #333;
-        padding: 12px 20px;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        min-width: 180px;
-    }
-
-    /* ГАЛЕРЕЯ И ФОТО */
-    .container {
-        max-width: 1100px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-    }
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 25px;
-    }
-    .photo-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    /* РАЗМЕР ВЕРХНИХ ФОТО */
-    .photo-card img {
-        width: 100%;
-        height: 600px !important; /* Увеличили до 320px */
-        object-fit: cover;
-        display: block;
-    }
-
-    /* РАЗМЕР НИЖНЕГО ФОТО */
-    .big-photo {
-        grid-column: span 2;
-    }
-    .big-photo img {
-        height: 1500px !important; /* Вернули 500px для солидности */
-    }
-
-    .description { padding: 15px; font-weight: bold; }
 </style>
 
 </head>
